@@ -1,0 +1,8 @@
+<div>
+  <div *ngIf="(days$ | async); else listEmpty">
+    <app-day-item *ngFor="let day of (days$ | async) | keyvalue" [day]="day"></app-day-item>
+  </div>
+  <ng-template #listEmpty>
+    <h3 class="text-center">Nothing yet.</h3>
+  </ng-template>
+</div>

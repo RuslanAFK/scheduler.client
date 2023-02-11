@@ -10,30 +10,34 @@ import {environment} from "../environments/environment";
 import {AuthModule} from "./features/auth/auth.module";
 import {SubjectModule} from "./features/subject/subject.module";
 import {EffectsModule} from "@ngrx/effects";
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './features/shared/components/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from "./interceptors/token.interceptor";
+import { HomeComponent } from './features/shared/components/home/home.component';
+import { InputComponent } from './features/shared/components/input/input.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {SharedModule} from "./features/shared/shared.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    AuthModule,
-    SubjectModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot(),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production,
-      autoPause: true
-    }),
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        AuthModule,
+        SubjectModule,
+        SharedModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot(),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production,
+            autoPause: true
+        }),
+        NgbModule
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
   ],

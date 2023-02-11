@@ -1,0 +1,15 @@
+<div>
+  <label *ngIf="name" class="form-label" [for]="name">{{name}}</label>
+
+  <div *ngIf="isSelect; else input">
+    <select class="form-select" *ngIf="binder" [formControl]="binder" [id]="name">
+      <option *ngFor="let elem of options | keyvalue" [value]="elem.key">
+        {{elem.value}}
+      </option>
+    </select>
+  </div>
+  <ng-template #input>
+    <input *ngIf="binder" class="form-control" [id]="name" [type]="type" [formControl]="binder">
+  </ng-template>
+</div>
+

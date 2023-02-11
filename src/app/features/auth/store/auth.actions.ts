@@ -1,4 +1,4 @@
-import {createAction, props} from "@ngrx/store";
+import {createAction} from "@ngrx/store";
 import AuthResponseInterface from "../../../interfaces/auth-response.interface";
 import UserInterface from "../../../interfaces/user.interface";
 

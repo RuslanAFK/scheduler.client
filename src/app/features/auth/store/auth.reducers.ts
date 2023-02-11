@@ -1,8 +1,8 @@
-import AuthStateInerface from "../../../interfaces/auth-state.inerface";
+import AuthStateInterface from "../../../interfaces/auth-state.interface";
 import {createReducer, on} from "@ngrx/store";
 import * as Actions from "./auth.actions";
 
-export const initialState: AuthStateInerface = {
+export const initialState: AuthStateInterface = {
   error: undefined,
   isLoading: false,
   user: undefined

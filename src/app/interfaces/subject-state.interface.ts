@@ -1,9 +1,10 @@
-import SubjectListInterface from "./subject-list.interface";
 import SubjectInterface from "./subject.interface";
+import DayValuePairsInterface from "./day-value-pairs.interface";
 
 export default interface SubjectStateInterface {
   isLoading: boolean;
   error?: string;
-  items: SubjectInterface[];
-  count: number;
+  days: DayValuePairsInterface | undefined;
+  single: SubjectInterface | undefined;
+  changed: boolean;
 }

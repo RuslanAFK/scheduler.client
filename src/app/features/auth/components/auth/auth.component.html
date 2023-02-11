@@ -1,10 +1,8 @@
-<h1>{{isRegisterPage ? "Register" : "Login"}}</h1>
-<form (submit)="onSubmit()" [formGroup]="form">
-  <label for="username">Name: </label>
-  <input id="username" type="text" [formControl]="form.controls.username">
-  <label for="password">Password: </label>
-  <input id="password" type="text" [formControl]="form.controls.password">
-  <button>Submit</button>
+<h1 class="text-center my-3">{{isRegisterPage ? "Register" : "Login"}}</h1>
+<form class="mx-auto my-auto w-25" (submit)="onSubmit()" [formGroup]="form">
+  <app-input [binder]="form.controls.username" name="Username"></app-input>
+  <app-input [binder]="form.controls.password" name="Password" type="password"></app-input>
+  <button class="btn btn-success my-2 w-100">Submit</button>
 </form>
 
 

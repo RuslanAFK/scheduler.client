@@ -1,5 +1,7 @@
-import CreateSubjectInterface from "./create-subject.interface";
+import {WeekDay} from "@angular/common";
+import GetSubjectsInterface from "./get-subjects.interface";
 
-export default interface SubjectInterface extends CreateSubjectInterface {
-  id: number;
+export default interface SubjectInterface extends GetSubjectsInterface {
+  weekDay: WeekDay;
+  count: number;
 }

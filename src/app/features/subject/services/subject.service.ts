@@ -1,9 +1,8 @@
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {SUBJECT_URL} from "../../app.urls";
-import CreateSubjectInterface from "../../interfaces/create-subject.interface";
-import SubjectInterface from "../../interfaces/subject.interface";
-import SubjectListInterface from "../../interfaces/subject-list.interface";
+import {SUBJECT_URL} from "../../../app.urls";
+import SubjectInterface from "../../../interfaces/subject.interface";
+import SubjectListInterface from "../../../interfaces/subject-list.interface";
 
 
 @Injectable()
@@ -18,7 +17,7 @@ export class SubjectService {
     return this.http.get<SubjectInterface>(`${SUBJECT_URL}/${subjectId}`)
   }
 
-  create = (subjectData: CreateSubjectInterface) => {
+  create = (subjectData: SubjectInterface) => {
     return this.http.post<void>(SUBJECT_URL, subjectData)
   }
 

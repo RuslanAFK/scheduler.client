@@ -1,8 +1,8 @@
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import UserInterface from "../../interfaces/user.interface";
-import {AUTH_URL} from "../../app.urls";
-import AuthResponseInterface from "../../interfaces/auth-response.interface";
+import UserInterface from "../../../interfaces/user.interface";
+import {AUTH_URL} from "../../../app.urls";
+import AuthResponseInterface from "../../../interfaces/auth-response.interface";
 
 
 @Injectable()

@@ -1,0 +1,14 @@
+<div *ngIf="subject" class="mx-auto w-25 border border-dark border-1 rounded-1 my-3">
+  <a *ngIf="subject.address; else noLink" href="{{subject.address}}">
+    <h4 class="text-center">{{subject.name}}</h4>
+  </a>
+  <ng-template #noLink>
+    <h4 class="text-center">{{subject.name}}</h4>
+  </ng-template>
+  <div *ngIf="subject.address">Address: {{subject.address}}</div>
+  <div>{{subject.type | subjectType}} at {{subject.hours}}:{{subject.minutes}}</div>
+  <div *ngIf="subject.professor">Professor: {{subject.professor}}</div>
+  <div>Week: {{subject.week | week}}</div>
+  <button (click)="onChange()" class="w-50 btn btn-warning">Change</button>
+  <button (click)="onDelete()" class="w-50 btn btn-danger">Delete</button>
+</div>

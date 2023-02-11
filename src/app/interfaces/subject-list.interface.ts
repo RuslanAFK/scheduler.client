@@ -1,6 +1,5 @@
-import SubjectInterface from "./subject.interface";
+import DayValuePairsInterface from "./day-value-pairs.interface";
 
 export default interface SubjectListInterface {
-  items: SubjectInterface[];
-  count: number;
+  items: DayValuePairsInterface;
 }

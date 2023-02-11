@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import AuthResponseInterface from "../../interfaces/auth-response.interface";
+import AuthResponseInterface from "../../../../interfaces/auth-response.interface";
 import {select, Store} from "@ngrx/store";
-import AppStateInterface from "../../interfaces/app-state.interface";
-import {error, isLoading, user} from "../../features/auth/store/auth.selectors";
-import * as AuthActions from "../../features/auth/store/auth.actions";
+import AppStateInterface from "../../../../interfaces/app-state.interface";
+import {error, isLoading, user} from "../../../auth/store/auth.selectors";
+import * as AuthActions from "../../../auth/store/auth.actions";
 
 @Component({
   selector: 'app-navbar',

@@ -1,0 +1,13 @@
+<h1 class="text-center my-3">{{id ? "Update" : "Add"}} Subject</h1>
+<form class="mx-auto my-auto w-50" (submit)="onSubmit()" [formGroup]="formService.form">
+  <app-input name="Name" [binder]="formService.form.controls.name"></app-input>
+  <app-input name="Weekday" [isSelect]="true" [binder]="formService.form.controls.weekDay" [options]="enumHandler.weekDays"></app-input>
+  <app-input name="Week" [isSelect]="true" [binder]="formService.form.controls.week" [options]="enumHandler.weeks"></app-input>
+  <app-input name="Subject Type" [isSelect]="true" [binder]="formService.form.controls.type" [options]="enumHandler.types"></app-input>
+  <app-input type="number" name="Count" [binder]="formService.form.controls.count"></app-input>
+  <app-input type="url" name="Url" [binder]="formService.form.controls.url"></app-input>
+  <app-input name="Address" [binder]="formService.form.controls.address"></app-input>
+  <app-input type="number" name="Hours" [binder]="formService.form.controls.hours"></app-input>
+  <app-input type="number" name="Minutes" [binder]="formService.form.controls.minutes"></app-input>
+  <button class="btn btn-success my-2 w-100">Submit</button>
+</form>

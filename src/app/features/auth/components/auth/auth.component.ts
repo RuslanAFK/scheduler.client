@@ -1,40 +1,46 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import AppStateInterface from "../../../../interfaces/app-state.interface";
 import {ActivatedRoute} from "@angular/router";
 import * as AuthActions from "../../store/auth.actions";
 import UserInterface from "../../../../interfaces/user.interface";
 import {FormControl, FormGroup} from "@angular/forms";
+import {AuthNavigationService} from "../../../shared/services/auth-navigation.service";
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, OnDestroy {
   isRegisterPage: boolean = false;
   form = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
   })
 
-
-  constructor(private store: Store<AppStateInterface>, private route: ActivatedRoute) {
+  constructor(private store: Store<AppStateInterface>, private route: ActivatedRoute,
+              private authNavService: AuthNavigationService) {
   }
   ngOnInit(): void {
-    //this.store.dispatch(Actions.logout())
     this.route.url.subscribe(par => {
       if (par[0].path.toLowerCase() === "register")
         this.isRegisterPage = true;
     });
+    this.authNavService.subscribeFromAuth();
+  }
+  ngOnDestroy(): void {
+    this.authNavService.unsubscribeFromAuth();
   }
 
   onSubmit() {
-    if (!this.form.value.username || !this.form.value.password)
+    if (this.form.invalid) {
+      alert("Invalid form.")
       return;
+    }
     let data: UserInterface = {
-      username: this.form.value.username,
-      password: this.form.value.password
+      username: this.form.value.username ?? '',
+      password: this.form.value.password ?? ''
     };
     if (this.isRegisterPage)
       this.store.dispatch(AuthActions.register(data));

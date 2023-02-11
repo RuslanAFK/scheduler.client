@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import {map, Observable, switchMap, tap, throwError} from 'rxjs';
+import {Observable} from 'rxjs';
 import {select, Store} from "@ngrx/store";
 import AppStateInterface from "../interfaces/app-state.interface";
 import {user} from "../features/auth/store/auth.selectors";
