@@ -1,0 +1,6 @@
+<div *ngIf="(subjects$ | async)?.length ?? [].length > 0; else listEmpty">
+  <app-subject-item *ngFor="let subject of (subjects$ | async)" [subject]="subject"></app-subject-item>
+</div>
+<ng-template #listEmpty>
+  <h3 class="text-center">Nothing yet.</h3>
+</ng-template>

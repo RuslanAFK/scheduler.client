@@ -1,0 +1,10 @@
+<h1>{{isRegisterPage ? "Register" : "Login"}}</h1>
+<form (submit)="onSubmit()" [formGroup]="form">
+  <label for="username">Name: </label>
+  <input id="username" type="text" [formControl]="form.controls.username">
+  <label for="password">Password: </label>
+  <input id="password" type="text" [formControl]="form.controls.password">
+  <button>Submit</button>
+</form>
+
+
