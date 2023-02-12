@@ -2,7 +2,7 @@
 <form class="mx-auto my-auto w-25" (submit)="onSubmit()" [formGroup]="form">
   <app-input [binder]="form.controls.username" name="Username"></app-input>
   <app-input [binder]="form.controls.password" name="Password" type="password"></app-input>
-  <button class="btn btn-success my-2 w-100">Submit</button>
+  <app-btn-conditional [loading]="(loading$ | async) ?? false"></app-btn-conditional>
 </form>
-
+<app-toast feature="auth"></app-toast>
 

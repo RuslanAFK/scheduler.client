@@ -9,10 +9,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class AuthNavigationService {
 
   user$ = this.store.pipe(select(user));
-  error$ = this.store.pipe(select(error));
 
   userSubscription: Subscription | undefined;
-  errorSubscription: Subscription | undefined;
 
   constructor(private store: Store<AppStateInterface>, private route: ActivatedRoute, private router: Router) {
   }
@@ -21,10 +19,6 @@ export class AuthNavigationService {
     this.userSubscription = this.user$.subscribe(user => {
       if (user)
         this.router.navigateByUrl("/subjects");
-    })
-    this.errorSubscription = this.error$.subscribe(error => {
-      if (error)
-        alert(`Error: ${error}`);
     })
   }
 
@@ -36,10 +30,8 @@ export class AuthNavigationService {
   }
 
   unsubscribeFromAuth() {
-    this.errorSubscription?.unsubscribe();
     this.userSubscription?.unsubscribe();
     delete this.userSubscription;
-    delete this.errorSubscription;
   }
 
   unsubscribeFromClassified() {

@@ -1,13 +1,15 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import * as SubjectActions from "../../store/subject.actions";
-import {Store} from "@ngrx/store";
+import {select, Store} from "@ngrx/store";
 import AppStateInterface from "../../../../interfaces/app-state.interface";
 import SubjectInterface from "../../../../interfaces/subject.interface";
 import {ChangeSubjectFormService} from "../../services/change-subject-form.service";
 import {AuthNavigationService} from "../../../shared/services/auth-navigation.service";
-import {ErrorAndChangeHandlerService} from "../../services/error-and-change-handler.service";
+import {ChangeHandlerService} from "../../services/change-handler.service";
 import {SingleSubjectReaderService} from "../../services/single-subject-reader.service";
 import {EnumHandlerService} from "../../services/enum-handler.service";
+import {Observable} from "rxjs";
+import {changing, isLoading} from "../../store/subject.selectors";
 
 @Component({
   selector: 'app-add-subject',
@@ -16,12 +18,18 @@ import {EnumHandlerService} from "../../services/enum-handler.service";
 })
 export class ChangeSubjectComponent implements OnInit, OnDestroy {
   id: number | undefined;
+  loading$: Observable<boolean>;
+  changing$: Observable<boolean>;
+
   constructor(private store: Store<AppStateInterface>,
               public formService: ChangeSubjectFormService,
               private authNavService: AuthNavigationService,
-              private errorAndChangeService: ErrorAndChangeHandlerService,
+              private errorAndChangeService: ChangeHandlerService,
               private singleSubjectService: SingleSubjectReaderService,
-              public  enumHandler: EnumHandlerService) { }
+              public  enumHandler: EnumHandlerService) {
+    this.loading$ = store.pipe(select(isLoading));
+    this.changing$ = store.pipe(select(changing));
+  }
 
   ngOnInit(): void {
     delete this.id;

@@ -7,6 +7,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {RouterLinkWithHref} from "@angular/router";
 import {ErrorGetterService} from "./services/error-getter.service";
 import {AuthNavigationService} from "./services/auth-navigation.service";
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { BtnConditionalComponent } from './components/btn-conditional/btn-conditional.component';
+import { ToastComponent } from './components/toast/toast.component';
+import {ToastService} from "./services/toast.service";
 
 
 
@@ -15,6 +19,9 @@ import {AuthNavigationService} from "./services/auth-navigation.service";
     NavbarComponent,
     HomeComponent,
     InputComponent,
+    SpinnerComponent,
+    BtnConditionalComponent,
+    ToastComponent,
   ],
   imports: [
     CommonModule,
@@ -25,10 +32,14 @@ import {AuthNavigationService} from "./services/auth-navigation.service";
     NavbarComponent,
     HomeComponent,
     InputComponent,
+    SpinnerComponent,
+    BtnConditionalComponent,
+    ToastComponent,
   ],
   providers: [
     ErrorGetterService,
-    AuthNavigationService
+    AuthNavigationService,
+    ToastService
   ]
 })
 export class SharedModule { }

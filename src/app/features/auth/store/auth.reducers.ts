@@ -19,4 +19,6 @@ export const reducers = createReducer(
   on(Actions.register, (state) => ({...state, user: undefined, error: undefined, isLoading: true})),
   on(Actions.registerFailure, (state, {error}) => ({...state, user: undefined, error: error, isLoading: false})),
 
+  on(Actions.clearError, (state) => ({...state, error: undefined})),
+
 );

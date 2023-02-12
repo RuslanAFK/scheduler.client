@@ -7,4 +7,5 @@ export default interface SubjectStateInterface {
   days: DayValuePairsInterface | undefined;
   single: SubjectInterface | undefined;
   changed: boolean;
+  changing: boolean;
 }

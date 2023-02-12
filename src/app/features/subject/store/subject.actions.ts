@@ -18,8 +18,8 @@ export const deleteSubject = createAction("[ Subject] Delete", (id: number) => (
 export const changeFailure = createAction("[ Subject] Change Failure", (data: string) => ({error: data}));
 export const changeSuccess = createAction("[ Subject] Change Success");
 
-export const changeFailureEnd = createAction("[ Subject] Change Failure End");
-export const changeSuccessEnd = createAction("[ Subject] Change Success End");
+export const clearError = createAction("[ Subject] Clear Error");
+export const clearChanged = createAction("[ Subject] Clear Changed");
 
 export const clearSingle = createAction("[ Subject] Clear Single");
 

@@ -1,0 +1,12 @@
+<div>
+  <div *ngIf="loading; else loaded">
+    <button class="btn btn-success my-2 w-100" type="button" disabled>
+      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+      Loading...
+    </button>
+  </div>
+  <ng-template #loaded>
+    <button class="btn btn-success my-2 w-100">Submit</button>
+  </ng-template>
+</div>
+

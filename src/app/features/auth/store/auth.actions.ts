@@ -11,6 +11,7 @@ export const loginFailure = createAction("[Auth] Login Failure", (err: string) =
 export const register = createAction("[Auth] Register", (res: UserInterface) => ({data: res}))
 export const registerFailure = createAction("[Auth] Register Failure", (err: string) => ({error: err}))
 
+export const clearError = createAction("[Auth] Clear Error")
 
 
 export const logout = createAction("[Auth] Logout")

@@ -10,6 +10,7 @@ export const days = createSelector(subjectSlice, state => state.days);
 export const error = createSelector(subjectSlice, state => state.error);
 
 export const changed = createSelector(subjectSlice, state => state.changed);
+export const changing = createSelector(subjectSlice, state => state.changing);
 
 export const single = createSelector(subjectSlice, state => state.single);
 

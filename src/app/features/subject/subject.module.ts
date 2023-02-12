@@ -15,7 +15,7 @@ import { ChangeSubjectComponent } from './components/add-subject/change-subject.
 import {ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../shared/shared.module";
 import {ChangeSubjectFormService} from "./services/change-subject-form.service";
-import {ErrorAndChangeHandlerService} from "./services/error-and-change-handler.service";
+import {ChangeHandlerService} from "./services/change-handler.service";
 import {SingleSubjectReaderService} from "./services/single-subject-reader.service";
 import {EnumHandlerService} from "./services/enum-handler.service";
 
@@ -41,7 +41,7 @@ import {EnumHandlerService} from "./services/enum-handler.service";
   providers: [
     SubjectService,
     ChangeSubjectFormService,
-    ErrorAndChangeHandlerService,
+    ChangeHandlerService,
     SingleSubjectReaderService,
     EnumHandlerService
   ],
