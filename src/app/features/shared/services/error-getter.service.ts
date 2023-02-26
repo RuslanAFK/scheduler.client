@@ -4,22 +4,24 @@ import {HttpErrorResponse} from "@angular/common/http";
 @Injectable()
 export class ErrorGetterService {
   getMessage(e: HttpErrorResponse): string {
-    let message = e.message;
-    if (e.error.errors) {
-      let errors = e.error.errors;
-      for (let i in errors) {
-        message = errors[i][0] ?? message;
-        break;
-      }
-    }
-    if (e.status === 500)
-      return  "Unknown error occurred.";
-    else if (e.status === 404)
+    // Error 404
+    if (e.status === 404)
       return  "Not found.";
-    if (message.includes("duplicate"))
-      return "Already exists."
-
-    return message;
+    // Validation errors
+    else if (e.error.errors) {
+      let errors = e.error.errors;
+      let errorArr = [];
+      for (let i in errors) {
+        errorArr.push(errors[i][0]);
+      }
+      return  errorArr.join("\n");
+    }
+    // If error 500(unexpected) or DbUpdate or IncorrectPassword
+    else if (e.error.error) {
+      return e.error.error;
+    }
+    // Default
+    return e.message;
   }
   constructor() { }
 }
