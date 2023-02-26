@@ -1,5 +1,5 @@
 <div *ngIf="subject" class="mx-auto w-25 border border-dark border-1 rounded-1 my-3">
-  <a *ngIf="subject.address; else noLink" href="{{subject.address}}">
+  <a *ngIf="subject.url; else noLink" href="{{subject.url}}" target="_blank">
     <h4 class="text-center">{{subject.name}}</h4>
   </a>
   <ng-template #noLink>
